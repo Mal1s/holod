@@ -1,0 +1,58 @@
+Create an ultra-premium, single-page landing page for a refrigerator repair master named Alexander in Tver, Russia.
+
+**GLOBAL STYLE & TECH STACK:**
+- Framework: React + Vite + TypeScript.
+- Styling: Tailwind CSS.
+- Animations: Framer Motion for page transitions and scroll reveals. GSAP for complex timeline animations. Three.js (@react-three/fiber + @react-three/drei) for the 3D scene.
+- Fonts: 'Space Grotesk' for headings (bold, futuristic), 'JetBrains Mono' for subtext/accents (monospace, tech feel).
+- Color Scheme: True Black (#000000) background, White (#FFFFFF) text, Electric Blue (#004FFF) as the single, striking accent color. No other colors.
+- Cursor: Custom cursor that is a small dot with a blurry blue glow. On hoverable elements, it scales to 2x and becomes a ring. On the main button, it shows a 'circuit board' pattern.
+- Scrollbar: Hide the default scrollbar. Implement a subtle, thin vertical line on the right edge of the screen (height 30px, blue glow) that moves smoothly down to indicate scroll progress.
+- Micro-interactions: Every button, link, or interactive card has a smooth hover state (scale, color shift, or border glow). No abrupt changes.
+
+**PAGE STRUCTURE (Smooth scroll snapping between sections):**
+
+**Section 1: Hero (Full screen, 100vh)**
+- Background: Deep black. In the center, a very subtle WebGL shader background effect (slowly moving dark blue and black gradient noise, like smoke underwater).
+- Layout: Split screen. Left 40% is the text. Right 60% is the Master's photo.
+- Master's Photo: A high-quality portrait (use a professional placeholder of a confident man). The image must have a 'high contrast' black and white filter. Apply a 'parallax' effect where the image moves slightly in the opposite direction of the mouse cursor (bounded within its frame, using Framer Motion's `useMotionValue`). Under the image, a subtle electric blue glowing underline (like a neon sign).
+- Headline: "ИНЖЕНЕРНЫЙ РЕМОНТ ХОЛОДИЛЬНИКОВ" (ENGINEERING REFRIGERATOR REPAIR). It types out letter by letter on load (typewriter effect).
+- Subheadline: "// Диагностика. Точность. Гарантия." (// Diagnostics. Precision. Warranty.) in JetBrains Mono.
+- CTA Button: "[ВЫЗВАТЬ МАСТЕРА]" (CALL THE MASTER) - Styled like a cyberpunk keycap. Border 1px solid blue. On hover, the background fills with blue and the text turns black.
+
+**Section 2: Interactive 3D Diagnostics (Full screen)**
+- Content: A beautiful, low-poly or semi-transparent 3D model of a modern refrigerator rotating slowly in the center (use Three.js). The background must be completely transparent/invisible for the 3D scene, so the black background shows through.
+- Interaction: Around the refrigerator, floating 3D nodes (spheres with blue glow) mark specific parts: Compressor, Control Board, Evaporator, Fan.
+- Mechanic: When the user hovers over a floating node, the refrigerator rotation pauses, the node pulses, and a sleek UI card slides in from the side (Glassmorphism style: bg-black/40, backdrop-blur-xl, border-blue/30).
+- Card Content: Shows the part name and a brief description of a common failure symptom in Russian (e.g., "Не охлаждает? Возможно, проблема с компрессором. Ремонт от 2500₽").
+
+**Section 3: Trust & Social Proof (Scroll triggered)**
+- Layout: A vertical grid of 4-5 "cards".
+- Card Design: Each card has a dark grey border and a semi-transparent dark background. Content includes an avatar, name, and text. The cards should animate in sequentially as the user scrolls (using Framer Motion's `whileInView`).
+- "Live Stats" Terminal Block: A separate component that looks like a terminal window.
+- Text inside terminal:
+  > LOADING SOCIAL MATRIX...
+  > VKONTAKTE FRIENDS: 5,000+
+  > ODNOKLASSNIKI FRIENDS: 1,000+
+  > AVITO PRO STATUS: VERIFIED
+  > PROFI.RU RATING: 4.9 / 5.0
+- This terminal prints line by line automatically every time the user scrolls into this section.
+- Logos: Include AVITO, PROFI.RU, VK, OK logos in a clean, monochrome blue/white strip at the bottom of this section.
+
+**Section 4: Price Conversion (Dark themed grid)**
+- A 3-column grid of service cards (Glassmorphism style).
+- Each card lists a service (e.g., "Замена компрессора" - Compressor Replacement) and a price.
+- Highlight the most popular card with a subtle blue border and a "РЕКОМЕНДУЕМАЯ" badge in the top corner.
+
+**Section 5: Footer & Contact**
+- Clean, minimal.
+- Big contact phone number in 'Space Grotesk'.
+- A form with a single input field styled like a command line: "> ВАШ ТЕЛЕФОН_". The cursor in the input should be a blinking blue block.
+- Submit button: [ОТПРАВИТЬ].
+- A small note: "Работаем по Твери и области. Выезд за 60 минут."
+
+**CRITICAL REQUIREMENTS:**
+- No scroll jitter. Scroll snapping must be buttery smooth (CSS `scroll-snap-type: y mandatory` on the main container).
+- Mobile responsive: On mobile, the parallax effect should be disabled. The 3D refrigerator model should scale down to fit the screen width.
+- All text must be in Russian (Cyrillic).
+- Generate placeholder images (preferably black and white portraits and appliance parts) or use abstract gradients as placeholders. Do NOT use generic stock photos of smiling repairmen.
