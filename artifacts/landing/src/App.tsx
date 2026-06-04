@@ -3,6 +3,7 @@ import { HeroSection } from "./components/HeroSection";
 import { WhySection } from "./components/WhySection";
 import { PricingSection } from "./components/PricingSection";
 import { ReviewsSection } from "./components/ReviewsSection";
+import { SocialSection } from "./components/SocialSection";
 import { FooterSection } from "./components/FooterSection";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <WhySection />
       <PricingSection />
       <ReviewsSection />
+      <SocialSection />
       <FooterSection />
     </div>
   );
