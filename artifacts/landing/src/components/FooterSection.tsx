@@ -1,56 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
 export const FooterSection: React.FC = () => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [phone, setPhone] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (phone) {
-      alert("ЗАЯВКА ОТПРАВЛЕНА");
-      setPhone("");
-    }
-  };
-
   return (
-    <section className="relative w-full h-screen snap-start overflow-hidden bg-black flex flex-col items-center justify-between py-12 px-6">
-      <div className="flex-1 flex flex-col items-center justify-center w-full max-w-4xl mx-auto text-center gap-16">
-        
-        <div>
-          <a href="tel:+79000000000" className="inline-block text-5xl md:text-7xl lg:text-8xl font-black font-sans text-white hover:text-[#004FFF] transition-all duration-300 hover:scale-105" style={{ textShadow: "0 0 0 rgba(0,79,255,0)" }} onMouseEnter={(e) => e.currentTarget.style.textShadow = "0 0 30px rgba(0,79,255,0.8)"} onMouseLeave={(e) => e.currentTarget.style.textShadow = "0 0 0 rgba(0,79,255,0)"}>
+    <section className="w-full bg-[#1E3A8A] pt-20 pb-8 px-6 text-white">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+          <div>
+            <h2 className="text-4xl font-black mb-2">Александр</h2>
+            <p className="text-[#93c5fd] text-lg">Мастер по ремонту холодильников · Тверь</p>
+          </div>
+          <a 
+            href="tel:+79000000000" 
+            className="text-4xl md:text-5xl lg:text-6xl font-black font-sans hover:text-[#93c5fd] transition-colors"
+          >
             +7 (900) 000-00-00
           </a>
-          <p className="text-gray-500 font-mono mt-4 uppercase tracking-widest text-sm">Связь напрямую с инженером</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto flex flex-col gap-6">
-          <div className="relative">
-            <label className="block text-left text-[#004FFF] font-mono text-sm mb-2">
-              {">"} ВАШ ТЕЛЕФОН {isFocused && <span className="animate-pulse inline-block w-2 h-[1em] bg-[#004FFF] align-middle ml-1"></span>}
-            </label>
-            <input 
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              className="w-full bg-transparent border-b-2 border-[#004FFF] text-white font-mono text-xl py-2 outline-none focus:border-white transition-colors"
-              placeholder="+7 (___) ___-__-__"
-              required
-            />
-          </div>
-          <button type="submit" className="main-cta group relative px-8 py-4 bg-transparent text-white font-mono text-sm tracking-widest uppercase overflow-hidden transition-all duration-300 hover:text-black border border-[#004FFF]">
-            <span className="relative z-10 pointer-events-none">[ОТПРАВИТЬ]</span>
-            <div className="absolute inset-0 bg-[#004FFF] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
-          </button>
-          
-          <p className="text-gray-500 font-mono text-xs uppercase text-center mt-2">Работаем по Твери и области. Выезд за 60 минут.</p>
-        </form>
+        <div className="w-full max-w-md bg-white text-[#1a1a1a] rounded-xl p-8 shadow-xl">
+          <h3 className="text-xl font-bold mb-6 text-center">Оставьте заявку — перезвоню в течение 15 минут</h3>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Заявка отправлена!"); }}>
+            <div>
+              <label className="block text-sm font-medium text-[#64748b] mb-1">Ваше имя</label>
+              <input 
+                type="text" 
+                required
+                className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                placeholder="Иван"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-[#64748b] mb-1">Ваш телефон</label>
+              <input 
+                type="tel" 
+                required
+                className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                placeholder="+7 (999) 000-00-00"
+              />
+            </div>
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              type="submit"
+              className="w-full py-4 bg-[#1D4ED8] text-white rounded-lg font-bold text-lg hover:bg-[#1e40af] transition-colors mt-2"
+            >
+              Отправить заявку
+            </motion.button>
+          </form>
+        </div>
       </div>
 
-      <footer className="w-full text-center border-t border-[#111] pt-6">
-        <p className="text-[#444] font-mono text-xs uppercase">© 2024 Александр. Мастер по ремонту холодильников. Тверь.</p>
-      </footer>
+      <div className="max-w-7xl mx-auto border-t border-[#1e40af] pt-8 text-center text-[#93c5fd] text-sm">
+        © 2024 Александр · Ремонт холодильников в Твери
+      </div>
     </section>
   );
 };

@@ -1,174 +1,98 @@
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-
-const CSSShaderBackground: React.FC = () => (
-  <div className="absolute inset-0 overflow-hidden">
-    <div className="hero-noise-layer" />
-    <div className="hero-noise-layer2" />
-    <div className="hero-grid-overlay" />
-  </div>
-);
+import React from "react";
+import { motion } from "framer-motion";
 
 export const HeroSection: React.FC = () => {
-  const [typedText, setTypedText] = useState("");
-  const [showSub, setShowSub] = useState(false);
-  const fullText = "ИНЖЕНЕРНЫЙ РЕМОНТ ХОЛОДИЛЬНИКОВ";
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setTypedText(fullText.slice(0, i + 1));
-      i++;
-      if (i === fullText.length) {
-        clearInterval(interval);
-        setTimeout(() => setShowSub(true), 300);
-      }
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const xTransform = useTransform(mouseX, [-500, 500], [15, -15]);
-  const yTransform = useTransform(mouseY, [-500, 500], [15, -15]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (window.innerWidth > 768) {
-      mouseX.set(e.clientX - window.innerWidth / 2);
-      mouseY.set(e.clientY - window.innerHeight / 2);
-    }
-  };
-
   return (
-    <section
-      className="relative w-full h-screen snap-start overflow-hidden flex flex-col md:flex-row items-center justify-center bg-black"
-      onMouseMove={handleMouseMove}
-      data-testid="section-hero"
-    >
-      <CSSShaderBackground />
-
-      <div className="relative z-10 w-full h-full flex flex-col md:flex-row max-w-7xl mx-auto px-6 md:px-12">
-        <div className="w-full md:w-[45%] h-full flex flex-col justify-center">
-          <div className="mb-3">
-            <span className="font-mono text-xs tracking-[0.4em] text-[#004FFF] uppercase opacity-80">
-              // МАСТЕР АЛЕКСАНДР — ТВЕРЬ
-            </span>
-          </div>
-
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-black font-sans tracking-tight text-white mb-6 leading-[1.1]"
-            data-testid="headline-hero"
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_#ffffff_0%,_#EFF6FF_100%)]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 pt-24 pb-12">
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6 inline-flex items-center gap-2 bg-[#EFF6FF] text-[#1D4ED8] rounded-full px-4 py-1.5 text-sm font-medium"
           >
-            {typedText}
-            <span className="inline-block w-[3px] h-[0.85em] bg-[#004FFF] ml-2 align-middle animate-blink" />
-          </h1>
+            <span className="text-yellow-500">⭐</span> Рейтинг 4.9 на Profi.ru · 5000+ клиентов ВКонтакте
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-[clamp(36px,5vw,72px)] font-black font-sans tracking-tight text-[#1a1a1a] leading-[1.1] mb-6"
+          >
+            Ремонт <span className="relative inline-block">
+              холодильников
+              <svg className="absolute w-full h-[12px] -bottom-2 left-0 text-[#1D4ED8]" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M0 10 Q 25 20 50 10 T 100 10" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </span> в Твери
+          </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: showSub ? 1 : 0, y: showSub ? 0 : 8 }}
-            transition={{ duration: 0.8 }}
-            className="text-gray-400 font-mono text-sm md:text-base mb-12 tracking-wider"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-[#64748b] text-lg md:text-xl max-w-lg mb-8"
           >
-            // Диагностика. Точность. Гарантия.
+            Александр — мастер с 10-летним опытом. Выезд за 60 минут, гарантия 12 месяцев.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: showSub ? 1 : 0, y: showSub ? 0 : 20 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10"
           >
-            <button
-              className="main-cta group relative px-8 py-4 bg-transparent text-white font-mono text-sm tracking-widest uppercase overflow-hidden transition-colors duration-300 hover:text-black border border-[#004FFF]"
-              data-testid="button-cta-hero"
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              className="px-8 py-4 bg-[#1D4ED8] text-white rounded-lg font-medium text-lg hover:bg-[#1e40af] transition-colors shadow-sm"
             >
-              <span className="relative z-10 pointer-events-none">[ВЫЗВАТЬ МАСТЕРА]</span>
-              <div className="absolute inset-0 bg-[#004FFF] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
-            </button>
+              Вызвать мастера
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              className="px-8 py-4 bg-white border border-[#1D4ED8] text-[#1D4ED8] rounded-lg font-medium text-lg hover:bg-[#EFF6FF] transition-colors"
+            >
+              Узнать цены
+            </motion.button>
           </motion.div>
-        </div>
 
-        <div className="hidden md:flex w-[55%] h-full items-center justify-center relative pointer-events-none select-none">
           <motion.div
-            style={{ x: xTransform, y: yTransform }}
-            className="relative w-full max-w-sm aspect-[3/4]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap gap-6 text-[#1a1a1a] font-medium text-sm"
           >
-            <svg
-              viewBox="0 0 300 400"
-              className="w-full h-full"
-              preserveAspectRatio="xMidYMax meet"
-            >
-              <defs>
-                <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#111111" />
-                  <stop offset="100%" stopColor="#000000" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="2" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              {/* Body */}
-              <rect x="80" y="30" width="140" height="280" rx="4" fill="url(#bodyGrad)" stroke="#004FFF" strokeWidth="1" strokeOpacity="0.6" />
-
-              {/* Upper door */}
-              <rect x="84" y="34" width="132" height="90" rx="2" fill="none" stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.4" />
-
-              {/* Lower door */}
-              <rect x="84" y="130" width="132" height="176" rx="2" fill="none" stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.4" />
-
-              {/* Handle top */}
-              <rect x="140" y="65" width="4" height="28" rx="2" fill="#004FFF" opacity="0.9" filter="url(#glow)" />
-
-              {/* Handle bottom */}
-              <rect x="140" y="155" width="4" height="28" rx="2" fill="#004FFF" opacity="0.9" filter="url(#glow)" />
-
-              {/* Scanlines / tech detail */}
-              {[160, 175, 190, 205, 220, 235].map((y) => (
-                <line key={y} x1="95" y1={y} x2="205" y2={y} stroke="#004FFF" strokeWidth="0.3" strokeOpacity="0.15" />
-              ))}
-
-              {/* Corner accent marks */}
-              <path d="M84,34 L84,44 M84,34 L94,34" stroke="#004FFF" strokeWidth="1.5" strokeOpacity="0.9" />
-              <path d="M216,34 L216,44 M216,34 L206,34" stroke="#004FFF" strokeWidth="1.5" strokeOpacity="0.9" />
-              <path d="M84,306 L84,296 M84,306 L94,306" stroke="#004FFF" strokeWidth="1.5" strokeOpacity="0.9" />
-              <path d="M216,306 L216,296 M216,306 L206,306" stroke="#004FFF" strokeWidth="1.5" strokeOpacity="0.9" />
-
-              {/* Side vent lines */}
-              {[340, 350, 360].map((y) => (
-                <line key={y} x1="85" y1={y - 30} x2="110" y2={y - 30} stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.5" />
-              ))}
-
-              {/* Compressor bump at bottom */}
-              <rect x="95" y="308" width="110" height="6" rx="2" fill="#004FFF" opacity="0.25" />
-
-              {/* Head */}
-              <ellipse cx="150" cy="10" rx="28" ry="26" fill="#0a0a0a" stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.3" />
-              {/* Shoulders */}
-              <path d="M80,30 Q60,28 50,45" stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.3" fill="none" />
-              <path d="M220,30 Q240,28 250,45" stroke="#004FFF" strokeWidth="0.5" strokeOpacity="0.3" fill="none" />
-            </svg>
-
-            {/* Neon underline */}
-            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#004FFF]"
-              style={{ boxShadow: "0 0 12px #004FFF, 0 0 24px #004FFF88" }} />
-
-            {/* Floating data points */}
-            <div className="absolute top-[15%] -right-12 font-mono text-[10px] text-[#004FFF] opacity-60 leading-5">
-              <div>RNG: 15KM</div>
-              <div>ETA: 60MIN</div>
-              <div>STS: READY</div>
+            <div className="flex items-center gap-2">
+              <span className="text-xl">⚡</span> Выезд 60 мин
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#1D4ED8] text-xl">✓</span> Гарантия 12 мес
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xl">📍</span> Тверь и область
             </div>
           </motion.div>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-40">
-        <span className="font-mono text-[10px] tracking-widest text-white uppercase">SCROLL</span>
-        <div className="w-px h-8 bg-gradient-to-b from-white to-transparent" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="hidden md:flex w-1/2 justify-center items-center"
+        >
+          <svg viewBox="0 0 300 450" className="w-full max-w-[360px] drop-shadow-2xl" preserveAspectRatio="xMidYMid meet">
+            <rect x="50" y="20" width="200" height="400" rx="16" fill="#F8F8F6" stroke="#E2E8F0" strokeWidth="2" />
+            <rect x="58" y="28" width="184" height="120" rx="8" fill="#F0F4FF" />
+            <rect x="58" y="156" width="184" height="256" rx="8" fill="#F0F4FF" />
+            
+            <rect x="146" y="60" width="8" height="40" rx="4" fill="#1D4ED8" />
+            <rect x="146" y="180" width="8" height="60" rx="4" fill="#1D4ED8" />
+            
+            <rect x="70" y="420" width="160" height="10" rx="4" fill="#64748b" opacity="0.2" />
+          </svg>
+        </motion.div>
       </div>
     </section>
   );

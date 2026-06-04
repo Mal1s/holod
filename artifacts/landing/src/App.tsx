@@ -1,25 +1,19 @@
 import React from "react";
 import { HeroSection } from "./components/HeroSection";
-import { DiagnosticsSection } from "./components/DiagnosticsSection";
-import { TrustSection } from "./components/TrustSection";
+import { WhySection } from "./components/WhySection";
 import { PricingSection } from "./components/PricingSection";
+import { ReviewsSection } from "./components/ReviewsSection";
 import { FooterSection } from "./components/FooterSection";
-import { CustomCursor } from "./components/CustomCursor";
-import { ScrollProgress } from "./components/ScrollProgress";
 
 function App() {
   return (
-    <>
-      <CustomCursor />
-      <ScrollProgress />
-      <div className="w-full h-screen overflow-y-scroll snap-y snap-mandatory bg-black text-white selection:bg-[#004FFF] selection:text-white">
-        <HeroSection />
-        <DiagnosticsSection />
-        <TrustSection />
-        <PricingSection />
-        <FooterSection />
-      </div>
-    </>
+    <div className="min-h-screen bg-background">
+      <HeroSection />
+      <WhySection />
+      <PricingSection />
+      <ReviewsSection />
+      <FooterSection />
+    </div>
   );
 }
 
