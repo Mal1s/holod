@@ -57,9 +57,11 @@ export const FooterSection: React.FC = () => {
             {/* Quick social row */}
             <div className="flex gap-3 mt-2">
               {[
-                { label: "ВК", href: "https://vk.com/alexander.remont.tver", bg: "bg-[#0077FF]" },
-                { label: "ОК", href: "https://ok.ru/", bg: "bg-[#EE8208]" },
-                { label: "Avito", href: "https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov", bg: "bg-[#00AAFF]" },
+                { label: "ВКонтакте", href: "https://vk.com/id401580420", bg: "bg-[#0077FF]" },
+                { label: "ОК", href: "https://ok.ru/profile/575591001485", bg: "bg-[#EE8208]" },
+                { label: "Авито", href: "https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov_2109964398", bg: "bg-[#00AAFF]" },
+                { label: "Профи.ру", href: "https://profi.ru/profile/AleksandrovAA226", bg: "bg-[#FF3B5C]" },
+                { label: "Rutube", href: "https://rutube.ru/channel/35722035", bg: "bg-[#1A3A8A]" },
               ].map(({ label, href, bg }) => (
                 <motion.a
                   key={label}
