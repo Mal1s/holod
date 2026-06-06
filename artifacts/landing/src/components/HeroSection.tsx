@@ -82,7 +82,7 @@ export const HeroSection: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10"
           >
             <motion.a
-              href="tel:+74822334455"
+              href="tel:+79201560292"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="px-8 py-4 bg-[#1D4ED8] text-white rounded-xl font-semibold text-lg hover:bg-[#1e40af] transition-colors shadow-lg shadow-blue-200 text-center"
@@ -134,38 +134,13 @@ export const HeroSection: React.FC = () => {
               style={{ background: "radial-gradient(ellipse at center, rgba(29,78,216,0.18) 0%, transparent 70%)" }}
             />
 
-            {/* Badge: top-left */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9, duration: 0.4 }}
-              className="absolute -top-4 -left-6 z-20 bg-white rounded-2xl px-4 py-2.5 shadow-xl border border-blue-50 flex items-center gap-2"
-            >
-              <span className="text-xl">🛠️</span>
-              <div>
-                <p className="text-xs font-black text-[#1a1a1a] leading-tight">10+ лет опыта</p>
-                <p className="text-[10px] text-[#94a3b8]">Профессионал</p>
-              </div>
-            </motion.div>
+           
 
-            {/* Badge: bottom-right */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.1, duration: 0.4 }}
-              className="absolute -bottom-4 -right-6 z-20 bg-[#1D4ED8] text-white rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-2"
-            >
-              <span className="text-xl">⚡</span>
-              <div>
-                <p className="text-xs font-black leading-tight">Выезд 60 мин</p>
-                <p className="text-[10px] text-blue-200">По всей Твери</p>
-              </div>
-            </motion.div>
 
             {/* Video container — portrait 9:16 */}
             <div
               className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-200 border-4 border-white"
-              style={{ width: "240px", aspectRatio: "9/16" }}
+              style={{ width: "420px", aspectRatio: "4/5" }}
             >
               <video
                 ref={videoRef}

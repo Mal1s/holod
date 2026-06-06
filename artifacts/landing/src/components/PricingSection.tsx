@@ -82,7 +82,7 @@ export const PricingSection: React.FC = () => (
         className="mt-10 text-center"
       >
         <motion.a
-          href="tel:+74822334455"
+          href="tel:+79201560292"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           className="inline-flex items-center gap-3 px-8 py-4 bg-[#1D4ED8] text-white rounded-xl font-semibold text-lg hover:bg-[#1e40af] transition-colors shadow-lg shadow-blue-200"
@@ -91,7 +91,7 @@ export const PricingSection: React.FC = () => (
           📞 Позвонить и узнать цену
         </motion.a>
         <p className="text-[#94a3b8] text-sm mt-3">
-          +7 (4822) 33-44-55 · Бесплатная консультация
+          +7 (920) 156-02-92 · Бесплатная консультация
         </p>
       </motion.div>
     </div>

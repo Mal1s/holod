@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SiVk } from "react-icons/si";
 import okImg from "@assets/одноклассники_1780760279020.png";
 import avitoImg from "@assets/авито_1780760284378.jpg";
@@ -8,154 +8,400 @@ import rutubeImg from "@assets/рутубе_1780760274046.png";
 
 interface Social {
   name: string;
-  handle: string;
-  desc: string;
+  stat: string;
+  statLabel: string;
   href: string;
   imgSrc?: string;
-  imgBg?: string;
   accentColor: string;
   useVkIcon?: boolean;
+  imageScale?: number;
+  imagePadding?: string;
 }
 
-const socials: Social[] = [
+const topShelf: Social[] = [
   {
     name: "ВКонтакте",
-    handle: "vk.com/id401580420",
-    desc: "5 000+ друзей",
+    stat: "5 000+",
+    statLabel: "друзей",
     href: "https://vk.com/id401580420",
     accentColor: "#0077FF",
     useVkIcon: true,
+    imageScale: 1.4,
+    imagePadding: "p-0",
   },
   {
     name: "Одноклассники",
-    handle: "ok.ru/profile/575591001485",
-    desc: "1 000+ подписчиков",
+    stat: "1 000+",
+    statLabel: "подписчиков",
     href: "https://ok.ru/profile/575591001485",
     imgSrc: okImg,
-    imgBg: "#FF8C00",
     accentColor: "#FF8C00",
+    imageScale: 1.2,
+    imagePadding: "p-0.5",
   },
   {
     name: "Авито",
-    handle: "avito.ru — Александр",
-    desc: "Pro-статус · 200+ оценок",
+    stat: "5.0",
+    statLabel: "рейтинг",
     href: "https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov_2109964398",
     imgSrc: avitoImg,
-    imgBg: "#F8F8F8",
     accentColor: "#00AAFF",
-  },
-  {
-    name: "Профи.ру",
-    handle: "profi.ru/AleksandrovAA226",
-    desc: "Рейтинг 4.9 / 5.0",
-    href: "https://profi.ru/profile/AleksandrovAA226",
-    imgSrc: profiImg,
-    imgBg: "#FFF0F0",
-    accentColor: "#FF3B5C",
-  },
-  {
-    name: "Rutube",
-    handle: "rutube.ru/channel/35722035",
-    desc: "Видео работ мастера",
-    href: "https://rutube.ru/channel/35722035",
-    imgSrc: rutubeImg,
-    imgBg: "#0D1B3E",
-    accentColor: "#1A3A8A",
+    imageScale: 1.5,
+    imagePadding: "p-0",
   },
 ];
 
-export const SocialSection: React.FC = () => (
-  <section id="social" className="w-full bg-[#F8FAFF] py-24 px-6">
-    <div className="max-w-6xl mx-auto">
+const bottomShelf: Social[] = [
+  {
+    name: "Профи.ру",
+    stat: "4.9",
+    statLabel: "из 5.0",
+    href: "https://profi.ru/profile/AleksandrovAA226",
+    imgSrc: profiImg,
+    accentColor: "#FF3B5C",
+    imageScale: 1.5,
+    imagePadding: "p-0",
+  },
+  {
+    name: "Rutube",
+    stat: "Видео",
+    statLabel: "канал",
+    href: "https://rutube.ru/channel/35722035",
+    imgSrc: rutubeImg,
+    accentColor: "#1A3A8A",
+    imageScale: 1.2,
+    imagePadding: "p-0.5",
+  },
+];
+
+// Карточка-полка
+const ShelfCard: React.FC<{ social: Social }> = ({ social }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.a
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      className="relative flex items-center justify-between bg-white border-2 border-[#E2E8F0] rounded-2xl px-6 py-5 cursor-pointer overflow-hidden group hover:border-[#60A5FA] hover:shadow-xl transition-all duration-300"
+    >
+      {/* Голубая подсветка при наведении */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <span className="inline-block text-xs font-mono tracking-[0.3em] text-[#1D4ED8] uppercase mb-3 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100">
-          Мы в сети
-        </span>
-        <h2 className="text-3xl md:text-5xl font-black font-sans text-[#1a1a1a] tracking-tight mt-4">
-          Найдите Александра
-          <br className="hidden md:block" /> в соцсетях
-        </h2>
-        <p className="text-[#64748b] mt-4 text-lg max-w-xl mx-auto">
-          Реальные отзывы, фото и видео работ, быстрая связь.
-        </p>
-      </motion.div>
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `linear-gradient(90deg, ${social.accentColor}08 0%, #EFF6FF 100%)`,
+        }}
+      />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {socials.map(({ name, handle, desc, href, imgSrc, imgBg, accentColor, useVkIcon }, i) => (
-          <motion.a
-            key={name}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
-            whileHover={{ y: -6, boxShadow: `0 16px 40px ${accentColor}22`, transition: { duration: 0.18 } }}
-            whileTap={{ scale: 0.97 }}
-            className="flex flex-col items-center text-center bg-white rounded-2xl p-5 border border-[#E8EFF8] shadow-sm hover:border-[#BFDBFE] transition-all"
-            data-testid={`link-social-${i}`}
-          >
-            {/* Logo */}
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 overflow-hidden flex-shrink-0"
-              style={{ background: useVkIcon ? accentColor : imgBg }}
-            >
-              {useVkIcon ? (
-                <SiVk className="w-9 h-9 text-white" />
-              ) : (
-                <img
-                  src={imgSrc}
-                  alt={name}
-                  className="w-full h-full object-contain p-1"
-                />
-              )}
-            </div>
+      <div className="relative z-10 flex items-center gap-5">
+        {/* Иконка */}
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-md border border-[#F1F5F9]"
+          style={{ background: social.useVkIcon ? social.accentColor : "#FFFFFF" }}
+        >
+          {social.useVkIcon ? (
+            <SiVk className="w-8 h-8 text-white" />
+          ) : (
+            <img
+              src={social.imgSrc}
+              alt={social.name}
+              className={`w-full h-full object-contain ${social.imagePadding}`}
+              style={{ transform: `scale(${social.imageScale})` }}
+            />
+          )}
+        </div>
 
-            {/* Name */}
-            <h3 className="text-sm font-black text-[#1a1a1a] mb-1 leading-tight">{name}</h3>
-
-            {/* Stats badge */}
-            <span
-              className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full mb-2"
-              style={{ background: `${accentColor}18`, color: accentColor }}
-            >
-              {desc}
-            </span>
-
-            {/* Handle */}
-            <p className="text-[#94a3b8] text-[9px] font-mono leading-tight break-all">
-              {handle}
-            </p>
-
-            {/* Arrow */}
-            <div
-              className="mt-3 w-7 h-7 rounded-full flex items-center justify-center"
-              style={{ background: `${accentColor}12` }}
-            >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke={accentColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </motion.a>
-        ))}
+        {/* Название */}
+        <div>
+          <h3 className="text-[#0F172A] font-extrabold text-base">{social.name}</h3>
+          <p className="text-[#94A3B8] text-sm">{social.statLabel}</p>
+        </div>
       </div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="mt-8 text-center text-[#94a3b8] text-sm"
-      >
-        Или пишите напрямую — отвечаю быстро
-      </motion.p>
-    </div>
-  </section>
+      <div className="relative z-10 flex items-center gap-5">
+        {/* Статистика */}
+        <motion.p
+          className="text-2xl font-black"
+          style={{ color: social.accentColor }}
+          animate={{ scale: isHovered ? 1.2 : 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          {social.stat}
+        </motion.p>
+
+        {/* Стрелка */}
+        <motion.div
+          animate={{ x: isHovered ? 6 : 0 }}
+          className="w-9 h-9 rounded-full flex items-center justify-center bg-[#F8FAFC] border border-[#E2E8F0] group-hover:bg-[#EFF6FF] group-hover:border-[#93C5FD] transition-all"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke={social.accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
+      </div>
+    </motion.a>
+  );
+};
+
+// Компонент снежинки
+const Snowflake: React.FC<{ delay: number; left: number; size: number; duration: number }> = ({ delay, left, size, duration }) => (
+  <motion.div
+    className="absolute pointer-events-none text-[#93C5FD]"
+    style={{
+      left: `${left}%`,
+      top: "-5%",
+      fontSize: `${size}px`,
+      opacity: 0,
+    }}
+    animate={{
+      y: ["0vh", "105vh"],
+      x: [0, 30, -20, 15, -10],
+      opacity: [0, 0.6, 0.5, 0.2, 0],
+      rotate: [0, 90, 180, 270, 360],
+    }}
+    transition={{
+      duration: duration,
+      delay: delay,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+  >
+    ❄
+  </motion.div>
 );
+
+export const SocialSection: React.FC = () => {
+  const [isFridgeOpen, setIsFridgeOpen] = useState(false);
+
+  // Генерируем снежинки
+  const snowflakes = Array.from({ length: 25 }, (_, i) => ({
+    id: i,
+    delay: Math.random() * 10,
+    left: Math.random() * 100,
+    size: 8 + Math.random() * 16,
+    duration: 8 + Math.random() * 12,
+  }));
+
+  return (
+    <section id="social" className="relative w-full bg-white py-24 px-6 md:px-12 overflow-hidden min-h-screen">
+
+      {/* Снежинки */}
+      {snowflakes.map((s) => (
+        <Snowflake key={s.id} delay={s.delay} left={s.left} size={s.size} duration={s.duration} />
+      ))}
+
+      {/* Лёгкий голубой фон */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full opacity-30 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-50 rounded-full opacity-30 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-50 rounded-full opacity-20 blur-[150px]" />
+        {/* Точки сетки */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `radial-gradient(circle, #3B82F6 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-xl mx-auto">
+
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <motion.span
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] text-[#2563EB] uppercase mb-4 bg-blue-50 px-6 py-2.5 rounded-full border-2 border-blue-100"
+          >
+            <span>❄️</span> Социальные сети <span>❄️</span>
+          </motion.span>
+          <h2 className="text-4xl md:text-6xl font-black text-[#0F172A] tracking-tight leading-tight">
+            Где найти
+            <br />
+            Александра
+          </h2>
+          <p className="text-[#64748B] mt-5 text-lg max-w-md mx-auto">
+            Все платформы в одном месте — просто наведите на холодильник
+          </p>
+        </motion.div>
+
+        {/* ХОЛОДИЛЬНИК */}
+        <div 
+          className="relative bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-100/50 border-2 border-[#CBD5E1]"
+          style={{ minHeight: "520px" }}
+          onMouseEnter={() => setIsFridgeOpen(true)}
+          onMouseLeave={() => setIsFridgeOpen(false)}
+        >
+
+          {/* Внешняя обводка-свечение */}
+          <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-br from-[#BFDBFE] via-[#E0E7FF] to-[#BAE6FD] -z-10 blur-sm opacity-60" />
+
+          {/* ДВЕРЦА — анимация открытия */}
+          <AnimatePresence>
+            {!isFridgeOpen && (
+              <motion.div
+                initial={{ x: 0 }}
+                animate={{ x: 0 }}
+                exit={{ x: "95%", opacity: 0, transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } }}
+                className="absolute inset-0 z-20 bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF] rounded-[2.4rem] flex flex-col items-center justify-center cursor-pointer border-2 border-[#E2E8F0]"
+              >
+                {/* Ручка */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-36 bg-[#CBD5E1] rounded-l-xl flex items-center shadow-inner">
+                  <div className="w-1.5 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5" />
+                </div>
+
+                {/* Содержимое дверцы */}
+                <div className="text-center px-6">
+                  <motion.div
+                    animate={{ scale: [1, 1.08, 1], rotate: [0, 5, 0, -5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="text-7xl mb-5 drop-shadow-lg"
+                  >
+                    🧊
+                  </motion.div>
+                  <p className="text-[#64748B] text-base font-semibold mb-1">Наведите курсор</p>
+                  <p className="text-[#2563EB] text-sm font-black tracking-widest uppercase">Соцсети мастера</p>
+                </div>
+
+                {/* Декоративный иней */}
+                <div className="absolute bottom-10 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#93C5FD] to-transparent" />
+                <div className="absolute bottom-14 left-14 w-20 h-[1px] bg-[#93C5FD] rotate-6" />
+                <div className="absolute bottom-16 right-12 w-16 h-[1px] bg-[#7DD3FC] -rotate-3" />
+                <div className="absolute top-10 right-12 w-14 h-[1px] bg-[#93C5FD] rotate-3" />
+                <div className="absolute top-14 left-10 w-12 h-[1px] bg-[#7DD3FC] -rotate-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Содержимое холодильника */}
+          <motion.div
+            animate={{ 
+              opacity: isFridgeOpen ? 1 : 0.2,
+              scale: isFridgeOpen ? 1 : 0.97,
+            }}
+            transition={{ duration: 0.4 }}
+            className="rounded-[2.4rem] overflow-hidden"
+          >
+            {/* Ручка (видна всегда) */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-36 bg-[#CBD5E1] rounded-l-xl z-30 flex items-center shadow-inner">
+              <div className="w-1.5 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5" />
+            </div>
+
+            {/* Верхняя камера */}
+            <div className="relative border-b-2 border-[#E2E8F0] bg-gradient-to-b from-white to-[#F8FAFC] pb-2">
+              {/* Этикетка */}
+              <div className="absolute top-4 left-5 z-10">
+                <span className="text-[11px] font-bold text-[#2563EB] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-lg border border-blue-100">
+                  🧊 Холодильная камера
+                </span>
+              </div>
+              {/* Подсветка */}
+              <div className="absolute top-8 right-5 w-4 h-10 bg-[#93C5FD] rounded-full opacity-30 blur-md" />
+
+              <div className="pt-14 pb-5 px-5 space-y-4">
+                {topShelf.map((social, i) => (
+                  <motion.div
+                    key={social.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.12 }}
+                  >
+                    <ShelfCard social={social} />
+                    {i < topShelf.length - 1 && (
+                      <div className="mt-4 h-[3px] bg-gradient-to-r from-transparent via-[#CBD5E1] to-transparent rounded-full opacity-40" />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Нижняя камера (морозилка) */}
+            <div className="relative bg-gradient-to-b from-[#F0F9FF] to-[#DBEAFE] pb-2">
+              {/* Этикетка */}
+              <div className="absolute top-4 left-5 z-10">
+                <span className="text-[11px] font-bold text-[#2563EB] tracking-widest uppercase bg-blue-100 px-3 py-1 rounded-lg border border-blue-200 flex items-center gap-1.5">
+                  <motion.span
+                    animate={{ rotate: [0, 20, 0, -20, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    ❄️
+                  </motion.span>
+                  Морозильная камера
+                </span>
+              </div>
+
+              {/* Иней */}
+              <div className="absolute inset-0 pointer-events-none opacity-40">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#7DD3FC] to-transparent" />
+                <div className="absolute top-5 right-10 w-14 h-[1px] bg-[#7DD3FC] rotate-6" />
+                <div className="absolute top-7 left-14 w-10 h-[1px] bg-[#7DD3FC] -rotate-3" />
+                <div className="absolute bottom-5 right-14 w-14 h-[1px] bg-[#7DD3FC] rotate-12" />
+                <div className="absolute bottom-8 left-10 w-8 h-[1px] bg-[#7DD3FC] -rotate-6" />
+                <div className="absolute top-12 right-6 w-6 h-[1px] bg-[#BAE6FD] rotate-45" />
+                <div className="absolute bottom-10 left-20 w-5 h-[1px] bg-[#BAE6FD] -rotate-12" />
+              </div>
+
+              <div className="pt-14 pb-5 px-5 space-y-4">
+                {bottomShelf.map((social, i) => (
+                  <motion.div
+                    key={social.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
+                  >
+                    <ShelfCard social={social} />
+                    {i < bottomShelf.length - 1 && (
+                      <div className="mt-4 h-[3px] bg-gradient-to-r from-transparent via-[#BAE6FD] to-transparent rounded-full" />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Ножки */}
+            <div className="flex justify-between px-10 pb-2 pt-1 bg-white">
+              <div className="w-5 h-2.5 bg-[#CBD5E1] rounded-b-lg shadow-inner" />
+              <div className="w-5 h-2.5 bg-[#CBD5E1] rounded-b-lg shadow-inner" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Подсказка */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-12 text-center text-[#94A3B8] text-sm flex items-center justify-center gap-2"
+        >
+          <motion.span
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            🧊
+          </motion.span>
+          Наведите на холодильник — дверца откроется
+          <motion.span
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          >
+            🧊
+          </motion.span>
+        </motion.p>
+      </div>
+    </section>
+  );
+};

@@ -33,14 +33,14 @@ export const FooterSection: React.FC = () => {
             </div>
 
             <motion.a
-              href="tel:+74822334455"
+              href="tel:+79201560292"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="flex items-center gap-3 text-3xl md:text-4xl font-black hover:text-blue-300 transition-colors"
               data-testid="link-phone-footer"
             >
               <Phone className="w-7 h-7 text-blue-300 flex-shrink-0" />
-              +7 (4822) 33-44-55
+              +7 (920) 156-02-92
             </motion.a>
 
             <div className="flex flex-col gap-3 text-blue-200 text-base">
