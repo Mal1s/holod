@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiVk } from "react-icons/si";
 import okImg from "@assets/одноклассники_1780760279020.png";
@@ -177,6 +177,11 @@ const Snowflake: React.FC<{ delay: number; left: number; size: number; duration:
 export const SocialSection: React.FC = () => {
   const [isFridgeOpen, setIsFridgeOpen] = useState(false);
 
+  // Для мобильных — переключение по клику на ручку
+  const handleToggle = useCallback(() => {
+    setIsFridgeOpen((prev) => !prev);
+  }, []);
+
   // Генерируем снежинки
   const snowflakes = Array.from({ length: 25 }, (_, i) => ({
     id: i,
@@ -232,7 +237,7 @@ export const SocialSection: React.FC = () => {
             Александра
           </h2>
           <p className="text-[#64748B] mt-5 text-lg max-w-md mx-auto">
-            Все платформы в одном месте — просто наведите на холодильник
+            Все платформы в одном месте — просто откройте холодильник
           </p>
         </motion.div>
 
@@ -254,32 +259,40 @@ export const SocialSection: React.FC = () => {
                 initial={{ x: 0 }}
                 animate={{ x: 0 }}
                 exit={{ x: "95%", opacity: 0, transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } }}
-                className="absolute inset-0 z-20 bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF] rounded-[2.4rem] flex flex-col items-center justify-center cursor-pointer border-2 border-[#E2E8F0]"
+                className="absolute inset-0 z-20 bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF] rounded-[2.4rem] flex flex-col items-center justify-center border-2 border-[#E2E8F0]"
               >
-                {/* Ручка */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-36 bg-[#CBD5E1] rounded-l-xl flex items-center shadow-inner">
-                  <div className="w-1.5 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5" />
-                </div>
+                {/* Ручка — кликабельная для мобильных */}
+                <button
+                  onClick={handleToggle}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-36 bg-[#CBD5E1] rounded-l-xl flex items-center shadow-inner cursor-pointer hover:bg-[#B0C4DE] transition-colors group/ handle z-30"
+                  aria-label="Открыть холодильник"
+                >
+                  <div className="w-2 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5 group-hover/handle:bg-[#7A8FA8] transition-colors" />
+                </button>
 
                 {/* Содержимое дверцы */}
                 <div className="text-center px-6">
                   <motion.div
                     animate={{ scale: [1, 1.08, 1], rotate: [0, 5, 0, -5, 0] }}
                     transition={{ duration: 4, repeat: Infinity }}
-                    className="text-7xl mb-5 drop-shadow-lg"
+                    className="text-7xl mb-5 drop-shadow-lg pointer-events-none"
                   >
                     🧊
                   </motion.div>
-                  <p className="text-[#64748B] text-base font-semibold mb-1">Наведите курсор</p>
-                  <p className="text-[#2563EB] text-sm font-black tracking-widest uppercase">Соцсети мастера</p>
+                  <p className="text-[#64748B] text-base font-semibold mb-1 pointer-events-none">
+                    Нажмите на ручку
+                  </p>
+                  <p className="text-[#2563EB] text-sm font-black tracking-widest uppercase pointer-events-none">
+                    Соцсети мастера
+                  </p>
                 </div>
 
                 {/* Декоративный иней */}
-                <div className="absolute bottom-10 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#93C5FD] to-transparent" />
-                <div className="absolute bottom-14 left-14 w-20 h-[1px] bg-[#93C5FD] rotate-6" />
-                <div className="absolute bottom-16 right-12 w-16 h-[1px] bg-[#7DD3FC] -rotate-3" />
-                <div className="absolute top-10 right-12 w-14 h-[1px] bg-[#93C5FD] rotate-3" />
-                <div className="absolute top-14 left-10 w-12 h-[1px] bg-[#7DD3FC] -rotate-6" />
+                <div className="absolute bottom-10 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#93C5FD] to-transparent pointer-events-none" />
+                <div className="absolute bottom-14 left-14 w-20 h-[1px] bg-[#93C5FD] rotate-6 pointer-events-none" />
+                <div className="absolute bottom-16 right-12 w-16 h-[1px] bg-[#7DD3FC] -rotate-3 pointer-events-none" />
+                <div className="absolute top-10 right-12 w-14 h-[1px] bg-[#93C5FD] rotate-3 pointer-events-none" />
+                <div className="absolute top-14 left-10 w-12 h-[1px] bg-[#7DD3FC] -rotate-6 pointer-events-none" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -293,13 +306,71 @@ export const SocialSection: React.FC = () => {
             transition={{ duration: 0.4 }}
             className="rounded-[2.4rem] overflow-hidden"
           >
-            {/* Ручка (видна всегда) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-36 bg-[#CBD5E1] rounded-l-xl z-30 flex items-center shadow-inner">
-              <div className="w-1.5 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5" />
+            {/* Ручка + кнопка закрытия (видна всегда, когда открыто) */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2">
+              {/* Ручка */}
+              <button
+                onClick={handleToggle}
+                className="w-4 h-36 bg-[#CBD5E1] rounded-l-xl flex items-center shadow-inner cursor-pointer hover:bg-[#B0C4DE] transition-colors group/handle"
+                aria-label="Закрыть холодильник"
+              >
+                <div className="w-2 h-24 bg-[#94A3B8] rounded-l-sm ml-0.5 group-hover/handle:bg-[#7A8FA8] transition-colors" />
+              </button>
+
+              {/* Маленькая стрелка закрытия */}
+              <motion.div
+                className="flex flex-col items-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <span className="text-[10px] text-[#94A3B8] font-medium mb-1">Закрыть</span>
+                <motion.svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="text-[#94A3B8]"
+                  animate={{ 
+                    rotate: [0, -15, 0, 15, 0],
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                >
+                  <path 
+                    d="M3 13C3 13 6.5 9 8 9C9.5 9 13 13 13 13" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M8 9V3" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M5 6L8 3L11 6" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                  <circle 
+                    cx="8" 
+                    cy="13" 
+                    r="1" 
+                    fill="currentColor"
+                  />
+                </motion.svg>
+              </motion.div>
             </div>
 
             {/* Верхняя камера */}
-            <div className="relative border-b-2 border-[#E2E8F0] bg-gradient-to-b from-white to-[#F8FAFC] pb-2">
+            <div className="relative border-b-2 border-[#E2E8F0] bg-gradient-to-b from-white to-[#F8FAFC] pb-2 pr-12">
               {/* Этикетка */}
               <div className="absolute top-4 left-5 z-10">
                 <span className="text-[11px] font-bold text-[#2563EB] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-lg border border-blue-100">
@@ -307,7 +378,7 @@ export const SocialSection: React.FC = () => {
                 </span>
               </div>
               {/* Подсветка */}
-              <div className="absolute top-8 right-5 w-4 h-10 bg-[#93C5FD] rounded-full opacity-30 blur-md" />
+              <div className="absolute top-8 right-16 w-4 h-10 bg-[#93C5FD] rounded-full opacity-30 blur-md" />
 
               <div className="pt-14 pb-5 px-5 space-y-4">
                 {topShelf.map((social, i) => (
@@ -328,7 +399,7 @@ export const SocialSection: React.FC = () => {
             </div>
 
             {/* Нижняя камера (морозилка) */}
-            <div className="relative bg-gradient-to-b from-[#F0F9FF] to-[#DBEAFE] pb-2">
+            <div className="relative bg-gradient-to-b from-[#F0F9FF] to-[#DBEAFE] pb-2 pr-12">
               {/* Этикетка */}
               <div className="absolute top-4 left-5 z-10">
                 <span className="text-[11px] font-bold text-[#2563EB] tracking-widest uppercase bg-blue-100 px-3 py-1 rounded-lg border border-blue-200 flex items-center gap-1.5">
@@ -393,7 +464,7 @@ export const SocialSection: React.FC = () => {
           >
             🧊
           </motion.span>
-          Наведите на холодильник — дверца откроется
+          Нажмите на ручку — дверца откроется
           <motion.span
             animate={{ scale: [1, 1.3, 1] }}
             transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}

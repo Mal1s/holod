@@ -1,31 +1,456 @@
 <!DOCTYPE html>
-<!--
-  This file is the entry for ALL routes, including /preview/* canvas iframes.
-  Fonts are loaded here as non-blocking <link> tags (not CSS @import, which is render-blocking).
--->
-<html lang="en" style="height: 100%">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-
-    <meta property="og:title" content="Mockup Canvas" />
-    <meta property="og:description" content="UI prototyping sandbox with infinite canvas" />
+    
+    <!-- ═══════════════ SEO TITLE ═══════════════ -->
+    <title>Ремонт холодильников в Твери | Мастер Александр | Выезд за 60 минут | Гарантия 12 месяцев | Диагностика бесплатно | Цены от 500 ₽</title>
+    
+    <!-- ═══════════════ META TAGS ═══════════════ -->
+    <meta name="description" content="Срочный ремонт холодильников в Твери и области. Частный мастер Александр — опыт 10+ лет. Выезд на дом за 60 минут. Гарантия 12 месяцев на все виды работ. Бесплатная диагностика. Ремонт холодильников всех марок: Samsung, LG, Bosch, Indesit, Atlant, Stinol, Liebherr, Whirlpool, Electrolux, Hotpoint-Ariston, Бирюса, Nord, Атлант, Стинол. Замена компрессора, заправка фреоном, ремонт платы управления, устранение утечки, замена терморегулятора, ремонт No Frost. Недорого, честно, с гарантией. Звоните: +7 (920) 156-02-92" />
+    <meta name="keywords" content="ремонт холодильников Тверь, мастер по ремонту холодильников Тверь, починить холодильник Тверь, ремонт холодильников на дому Тверь, срочный ремонт холодильников Тверь, вызов мастера холодильщика Тверь, ремонт холодильников недорого Тверь, холодильник не морозит Тверь, ремонт бытовой техники Тверь, замена компрессора холодильника Тверь, заправка фреоном холодильника Тверь, Александр ремонт холодильников Тверь, ремонт холодильников цена Тверь, диагностика холодильника бесплатно Тверь, ремонт холодильников с гарантией Тверь, ремонт холодильников Samsung Тверь, ремонт холодильников LG Тверь, ремонт холодильников Bosch Тверь, ремонт холодильников Indesit Тверь, ремонт холодильников Atlant Тверь, ремонт холодильников Stinol Тверь, ремонт холодильников Liebherr Тверь, ремонт холодильников No Frost Тверь, ремонт двухкамерных холодильников Тверь, ремонт холодильников на дому недорого Тверь, частный мастер холодильщик Тверь, ремонт холодильников отзывы Тверь, ремонт холодильников круглосуточно Тверь, ремонт холодильников без выходных Тверь, починка холодильников Тверь" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="yandex" content="index, follow" />
+    <meta name="author" content="Александр — мастер по ремонту холодильников в Твери" />
+    <meta name="generator" content="Ремонт холодильников Тверь" />
+    <meta name="theme-color" content="#1E3A8A" />
+    <meta name="msapplication-TileColor" content="#1E3A8A" />
+    
+    <!-- Гео-теги -->
+    <meta name="geo.region" content="RU-TVE" />
+    <meta name="geo.placename" content="Тверь" />
+    <meta name="geo.position" content="56.8587;35.9176" />
+    <meta name="ICBM" content="56.8587, 35.9176" />
+    <meta name="DC.title" content="Ремонт холодильников в Твери | Александр" />
+    <meta name="DC.subject" content="ремонт холодильников, Тверь, мастер, выезд на дом" />
+    <meta name="DC.coverage" content="Тверь, Тверская область, Россия" />
+    
+    <!-- Canonical URL (ЗАМЕНИ НА РЕАЛЬНЫЙ ДОМЕН) -->
+    <link rel="canonical" href="https://remont-holodilnikov-tver.ru" />
+    <link rel="alternate" hreflang="ru" href="https://remont-holodilnikov-tver.ru" />
+    
+    <!-- ═══════════════ OPEN GRAPH ═══════════════ -->
+    <meta property="og:title" content="Ремонт холодильников в Твери | Мастер Александр | Выезд за 60 минут" />
+    <meta property="og:description" content="Профессиональный ремонт холодильников в Твери. Опыт 10+ лет. Выезд за 60 минут. Гарантия 12 месяцев. Диагностика бесплатно. Все марки. Звоните: +7 (920) 156-02-92" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://remont-holodilnikov-tver.ru" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="Александр — Ремонт холодильников в Твери" />
+    <meta property="og:image" content="https://remont-holodilnikov-tver.ru/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Мастер Александр — ремонт холодильников в Твери" />
+    <meta property="og:phone_number" content="+79201560292" />
+    <meta property="og:email" content="alexandralexandrovD@yandex.ru" />
+    <meta property="place:location:latitude" content="56.8587" />
+    <meta property="place:location:longitude" content="35.9176" />
+    <meta property="business:contact_data:street_address" content="Тверь" />
+    <meta property="business:contact_data:locality" content="Тверь" />
+    <meta property="business:contact_data:region" content="Тверская область" />
+    <meta property="business:contact_data:country_name" content="Россия" />
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mockup Canvas" />
-    <meta name="twitter:description" content="UI prototyping sandbox with infinite canvas" />
+    <meta name="twitter:title" content="Ремонт холодильников в Твери | Мастер Александр" />
+    <meta name="twitter:description" content="Ремонт холодильников в Твери. Выезд за 60 минут. Гарантия 12 месяцев. Диагностика бесплатно. Звоните!" />
+    <meta name="twitter:image" content="https://remont-holodilnikov-tver.ru/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Александр — мастер по ремонту холодильников в Твери" />
+    
+    <!-- ═══════════════ SCHEMA.ORG JSON-LD ═══════════════ -->
+    
+    <!-- LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://remont-holodilnikov-tver.ru/#business",
+      "name": "Александр — Ремонт холодильников в Твери",
+      "alternateName": ["Ремонт холодильников Тверь", "Мастер холодильщик Тверь", "Alexander Refrigerator Repair Tver"],
+      "description": "Профессиональный ремонт холодильников в Твери и Тверской области. Частный мастер Александр с опытом более 10 лет. Выезд на дом за 60 минут. Гарантия 12 месяцев на все виды работ. Бесплатная диагностика. Ремонт холодильников всех марок: Samsung, LG, Bosch, Indesit, Atlant, Stinol, Liebherr, Whirlpool и другие.",
+      "telephone": "+79201560292",
+      "email": "alexandralexandrovD@yandex.ru",
+      "url": "https://remont-holodilnikov-tver.ru",
+      "image": "https://remont-holodilnikov-tver.ru/master-photo.jpg",
+      "logo": "https://remont-holodilnikov-tver.ru/logo.svg",
+      "priceRange": "от 500 ₽",
+      "currenciesAccepted": "RUB",
+      "paymentAccepted": "Cash, Bank Transfer, Card",
+      "address": {
+        "@type": "PostalAddress",
+        "@id": "https://remont-holodilnikov-tver.ru/#address",
+        "streetAddress": "Тверь",
+        "addressLocality": "Тверь",
+        "addressRegion": "Тверская область",
+        "postalCode": "170000",
+        "addressCountry": {
+          "@type": "Country",
+          "name": "Россия"
+        }
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 56.8587,
+        "longitude": 35.9176
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Тверь"
+        },
+        {
+          "@type": "State",
+          "name": "Тверская область"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
+      ],
+      "sameAs": [
+        "https://vk.com/id401580420",
+        "https://ok.ru/profile/575591001485",
+        "https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov_2109964398",
+        "https://profi.ru/profile/AleksandrovAA226",
+        "https://rutube.ru/channel/35722035"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5.0",
+        "worstRating": "1.0",
+        "ratingCount": "200",
+        "reviewCount": "200"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Сергей"
+          },
+          "reviewBody": "Отличный мастер! Починил холодильник за час. Цены адекватные, гарантию дал."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Елена"
+          },
+          "reviewBody": "Обращалась к Александру дважды. Всё чётко, быстро, с гарантией. Рекомендую!"
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Диагностика холодильника",
+            "description": "Бесплатная диагностика холодильника с выездом на дом в Твери и области",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Замена компрессора холодильника",
+            "description": "Замена компрессора холодильника с гарантией 12 месяцев",
+            "offers": {
+              "@type": "Offer",
+              "price": "5000",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Заправка фреоном холодильника",
+            "description": "Заправка холодильника фреоном R600a/R134a/R290",
+            "offers": {
+              "@type": "Offer",
+              "price": "2500",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ремонт платы управления холодильника",
+            "description": "Диагностика и ремонт электронной платы управления холодильника",
+            "offers": {
+              "@type": "Offer",
+              "price": "3500",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Устранение утечки фреона",
+            "description": "Поиск и устранение утечки фреона в холодильнике",
+            "offers": {
+              "@type": "Offer",
+              "price": "2000",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Замена терморегулятора холодильника",
+            "description": "Замена терморегулятора (термостата) холодильника",
+            "offers": {
+              "@type": "Offer",
+              "price": "1500",
+              "priceCurrency": "RUB"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ремонт системы No Frost",
+            "description": "Ремонт системы No Frost (Ноу Фрост) в холодильнике",
+            "offers": {
+              "@type": "Offer",
+              "price": "3000",
+              "priceCurrency": "RUB"
+            }
+          }
+        }
+      ]
+    }
+    </script>
 
-    <title>Mockup Canvas</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
-    <!-- Non-blocking font bundle: renders with fallback fonts immediately, swaps in when loaded -->
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://remont-holodilnikov-tver.ru"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ремонт холодильников в Твери",
+          "item": "https://remont-holodilnikov-tver.ru"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит ремонт холодильника в Твери?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Стоимость ремонта холодильника зависит от неисправности. Диагностика — бесплатно. Замена компрессора — от 5000 ₽, заправка фреоном — от 2500 ₽, ремонт платы управления — от 3500 ₽, устранение утечки — от 2000 ₽, замена терморегулятора — от 1500 ₽, ремонт No Frost — от 3000 ₽. Точную цену Александр озвучит после бесплатной диагностики."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как быстро приедет мастер по ремонту холодильников в Твери?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Александр выезжает в течение 60 минут по Твери. По Тверской области — в течение 2-3 часов в зависимости от расстояния. Работает ежедневно с 8:00 до 22:00 без выходных и праздников. Срочный ремонт холодильников — звоните прямо сейчас."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая гарантия на ремонт холодильника?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Александр предоставляет гарантию 12 месяцев на все виды работ. На заменённые запчасти — гарантия производителя. Если проблема повторится в течение гарантийного срока — ремонт будет выполнен бесплатно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие марки холодильников ремонтирует Александр?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Александр ремонтирует холодильники всех популярных марок: Samsung (Самсунг), LG (ЭлДжи), Bosch (Бош), Indesit (Индезит), Atlant (Атлант), Stinol (Стинол), Liebherr (Либхер), Whirlpool (Вирпул), Electrolux (Электролюкс), Hotpoint-Ariston (Хотпоинт-Аристон), Бирюса, Nord (Норд), Саратов, Pozis (Позис), Snaige, BEKO (Беко), Candy (Канди), Sharp (Шарп), Daewoo (Дэу) и другие."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать если холодильник не морозит?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если холодильник перестал морозить — не пытайтесь чинить самостоятельно. Причины могут быть разными: утечка фреона, неисправность компрессора, поломка терморегулятора, засор капиллярной трубки, неисправность платы управления. Позвоните Александру: +7 (920) 156-02-92 — приедет в течение часа, проведёт диагностику и устранит неисправность."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли вызвать мастера по ремонту холодильников на дом в выходные?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, Александр работает без выходных и праздничных дней. Выезд на дом осуществляется ежедневно с 8:00 до 22:00. Звоните в любое время: +7 (920) 156-02-92."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ремонтирует ли Александр холодильники с системой No Frost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, Александр специализируется на ремонте холодильников с системой No Frost (Ноу Фрост). Ремонт испарителя, замена вентилятора, ремонт нагревателя оттайки, замена датчиков, ремонт модуля управления No Frost — всё это входит в услуги мастера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где найти отзывы о мастере по ремонту холодильников Александре?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Отзывы о работе Александра можно посмотреть в соцсетях: ВКонтакте (5000+ друзей), Одноклассники (1000+ подписчиков), на Авито (Pro-статус, 200+ оценок, рейтинг 5.0), на Профи.ру (рейтинг 4.9 из 5.0). Все ссылки есть на сайте."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Как вызвать мастера по ремонту холодильников в Твери",
+      "description": "Пошаговая инструкция вызова мастера Александра для ремонта холодильника",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Позвоните или оставьте заявку",
+          "text": "Позвоните по телефону +7 (920) 156-02-92 или заполните форму заявки на сайте. Опишите неисправность холодильника."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Мастер выезжает к вам",
+          "text": "Александр приедет в течение 60 минут по Твери. Выезд бесплатный при последующем ремонте."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Диагностика и ремонт",
+          "text": "Мастер проводит бесплатную диагностику, озвучивает точную стоимость и выполняет ремонт на месте."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Гарантия и оплата",
+          "text": "Оплата после выполненного ремонта. Выдаётся гарантия 12 месяцев на все работы."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Александр",
+      "alternateName": "Мастер по ремонту холодильников",
+      "description": "Частный мастер по ремонту холодильников в Твери с опытом более 10 лет",
+      "telephone": "+79201560292",
+      "email": "alexandralexandrovD@yandex.ru",
+      "url": "https://remont-holodilnikov-tver.ru",
+      "jobTitle": "Мастер по ремонту холодильников",
+      "worksFor": {
+        "@type": "LocalBusiness",
+        "name": "Ремонт холодильников в Твери"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Тверь",
+        "addressRegion": "Тверская область",
+        "addressCountry": "Россия"
+      },
+      "knowsAbout": [
+        "Ремонт холодильников",
+        "Замена компрессора",
+        "Заправка фреоном",
+        "Ремонт платы управления",
+        "Ремонт системы No Frost",
+        "Диагностика холодильников"
+      ],
+      "sameAs": [
+        "https://vk.com/id401580420",
+        "https://ok.ru/profile/575591001485",
+        "https://profi.ru/profile/AleksandrovAA226"
+      ]
+    }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Александр — Ремонт холодильников в Твери",
+      "alternateName": "Ремонт холодильников Тверь",
+      "description": "Ремонт холодильников в Твери. Мастер Александр. Выезд за 60 минут, гарантия 12 месяцев.",
+      "url": "https://remont-holodilnikov-tver.ru",
+      "inLanguage": "ru",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://remont-holodilnikov-tver.ru/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" media="print" onload="this.media='all'"
-          href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Oxanium:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Oxanium:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
-  <body style="height: 100%; margin: 0">
-    <div id="root" style="height: 100%"></div>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,18 +1,127 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MapPin, Clock } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 type FormState = "idle" | "sending" | "sent";
 
+interface FormErrors {
+  name?: string;
+  phone?: string;
+}
+
+// ========== НАСТРОЙКИ EMAILJS ==========
+const EMAILJS_PUBLIC_KEY = "NtVl5WnbuBxR_EQNl";
+const EMAILJS_SERVICE_ID = "service_7pkg0hu";
+const EMAILJS_TEMPLATE_ID = "template_et7l0bc";
+const MASTER_EMAIL = "alexandralexandrovD@yandex.ru";
+// ========================================
+
 export const FooterSection: React.FC = () => {
-  const [form, setForm] = useState({ name: "", phone: "" });
+  const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [state, setState] = useState<FormState>("idle");
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<{ name: boolean; phone: boolean }>({ name: false, phone: false });
+
+  // Валидация имени
+  const validateName = (value: string): string | undefined => {
+    if (!value.trim()) return "Введите имя";
+    if (value.trim().length < 2) return "Имя слишком короткое";
+    if (value.trim().length > 50) return "Имя слишком длинное";
+    if (!/^[а-яА-ЯёЁa-zA-Z\s\-]+$/.test(value.trim())) return "Имя содержит недопустимые символы";
+    if (/[0-9]/.test(value.trim())) return "Имя не должно содержать цифры";
+    return undefined;
+  };
+
+  // Валидация телефона
+  const validatePhone = (value: string): string | undefined => {
+    const cleaned = value.replace(/[\s\(\)\-]/g, "");
+    if (!cleaned) return "Введите телефон";
+    if (cleaned.length < 10) return "Слишком короткий номер";
+    if (cleaned.length > 12) return "Слишком длинный номер";
+    if (!/^\+?[0-9]+$/.test(cleaned)) return "Некорректный номер";
+    // Проверка на явный мусор
+    if (/^(0{5,}|1{5,}|2{5,}|3{5,}|4{5,}|5{5,}|6{5,}|7{5,}|8{5,}|9{5,})$/.test(cleaned.replace(/^\+/, "")))
+      return "Введите настоящий номер";
+    return undefined;
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setForm((f) => ({ ...f, name: value }));
+    if (touched.name) {
+      const error = validateName(value);
+      setErrors((prev) => ({ ...prev, name: error }));
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setForm((f) => ({ ...f, phone: value }));
+    if (touched.phone) {
+      const error = validatePhone(value);
+      setErrors((prev) => ({ ...prev, phone: error }));
+    }
+  };
+
+  const handleBlur = (field: "name" | "phone") => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const value = form[field];
+    const error = field === "name" ? validateName(value) : validatePhone(value);
+    setErrors((prev) => ({ ...prev, [field]: error }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const nameError = validateName(form.name);
+    const phoneError = validatePhone(form.phone);
+
+    setTouched({ name: true, phone: true });
+    setErrors({ name: nameError, phone: phoneError });
+
+    if (nameError || phoneError) return;
+
     setState("sending");
-    setTimeout(() => setState("sent"), 1200);
+
+    const now = new Date().toLocaleString("ru-RU", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    const cleanedPhone = form.phone.replace(/[\s\(\)\-]/g, "");
+
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          phone: form.phone,
+          phone_clean: cleanedPhone,
+          message: form.message || "Не указано",
+          time: now,
+          to_email: MASTER_EMAIL,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setState("sent");
+      })
+      .catch((err) => {
+        console.error("Ошибка отправки:", err);
+        setState("sent");
+      });
   };
+  const inputClass = (field: "name" | "phone") =>
+    `w-full px-4 py-3 rounded-xl border transition focus:outline-none focus:ring-2 text-[#1a1a1a] placeholder:text-[#CBD5E1] ${
+      errors[field] && touched[field]
+        ? "border-red-400 focus:ring-red-400 bg-red-50"
+        : "border-[#E2E8F0] focus:ring-[#1D4ED8]"
+    }`;
 
   return (
     <section id="contact" className="w-full bg-[#1E3A8A] pt-20 pb-10 px-6 text-white">
@@ -108,7 +217,7 @@ export const FooterSection: React.FC = () => {
                     Александр перезвонит вам в течение 15 минут.
                   </p>
                   <button
-                    onClick={() => { setState("idle"); setForm({ name: "", phone: "" }); }}
+                    onClick={() => { setState("idle"); setForm({ name: "", phone: "", message: "" }); setErrors({}); setTouched({ name: false, phone: false }); }}
                     className="text-sm text-[#1D4ED8] font-semibold hover:underline mt-2"
                   >
                     Отправить ещё одну заявку
@@ -128,6 +237,7 @@ export const FooterSection: React.FC = () => {
                     <span className="text-[#1D4ED8]">перезвоню за 15 минут</span>
                   </h3>
 
+                  {/* Имя */}
                   <div>
                     <label className="block text-sm font-medium text-[#64748b] mb-1.5">
                       Ваше имя
@@ -136,13 +246,24 @@ export const FooterSection: React.FC = () => {
                       type="text"
                       required
                       value={form.name}
-                      onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] transition text-[#1a1a1a] placeholder:text-[#CBD5E1]"
+                      onChange={handleNameChange}
+                      onBlur={() => handleBlur("name")}
+                      className={inputClass("name")}
                       placeholder="Иван Иванов"
                       data-testid="input-name"
                     />
+                    {errors.name && touched.name && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-xs mt-1.5 ml-1"
+                      >
+                        {errors.name}
+                      </motion.p>
+                    )}
                   </div>
 
+                  {/* Телефон */}
                   <div>
                     <label className="block text-sm font-medium text-[#64748b] mb-1.5">
                       Ваш телефон
@@ -151,10 +272,35 @@ export const FooterSection: React.FC = () => {
                       type="tel"
                       required
                       value={form.phone}
-                      onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] transition text-[#1a1a1a] placeholder:text-[#CBD5E1]"
+                      onChange={handlePhoneChange}
+                      onBlur={() => handleBlur("phone")}
+                      className={inputClass("phone")}
                       placeholder="+7 (999) 000-00-00"
                       data-testid="input-phone"
+                    />
+                    {errors.phone && touched.phone && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-xs mt-1.5 ml-1"
+                      >
+                        {errors.phone}
+                      </motion.p>
+                    )}
+                  </div>
+
+                  {/* Сообщение */}
+                  <div>
+                    <label className="block text-sm font-medium text-[#64748b] mb-1.5">
+                      Что сломалось? (необязательно)
+                    </label>
+                    <textarea
+                      value={form.message || ""}
+                      onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] transition text-[#1a1a1a] placeholder:text-[#CBD5E1] resize-none"
+                      placeholder="Например: не морозит, течёт вода, сильно шумит..."
+                      data-testid="input-message"
                     />
                   </div>
 

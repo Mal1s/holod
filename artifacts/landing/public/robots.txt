@@ -1,2 +1,277 @@
+# ──────────────────────────────────────────────
+# robots.txt — Ремонт холодильников в Твери
+# Мастер Александр | remont-holodilnikov-tver.ru
+# ──────────────────────────────────────────────
+
+# ─── Все поисковики ───
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /cgi-bin
+Disallow: /tmp
+Disallow: /private
+Disallow: /test
+Disallow: /dev
+Disallow: /staging
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.zip$
+Disallow: /*.tar.gz$
+Disallow: /wp-*
+Disallow: /wordpress
+Disallow: /bitrix
+Disallow: /joomla
+
+# ─── Yandex ───
+User-agent: Yandex
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /cgi-bin
+Disallow: /tmp
+Disallow: /private
+Disallow: /test
+Clean-Param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid&gclid&yclid&_openstat
+Host: remont-holodilnikov-tver.ru
+
+# ─── Yandex Images ───
+User-agent: YandexImages
+Allow: /
+Allow: /images/
+Allow: /assets/
+Allow: /public/
+
+# ─── Yandex Video ───
+User-agent: YandexVideo
+Allow: /
+Allow: /assets/
+Allow: /videos/
+
+# ─── Yandex News ───
+User-agent: YandexNews
+Allow: /
+
+# ─── Yandex Direct ───
+User-agent: YandexDirect
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /cgi-bin
+Disallow: /tmp
+Disallow: /private
+
+# ─── Yandex Metrika ───
+User-agent: YandexMetrika
+Allow: /
+
+# ─── Yandex Market ───
+User-agent: YandexMarket
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+
+# ─── Google ───
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /cgi-bin
+Disallow: /tmp
+Disallow: /private
+Disallow: /test
+
+# ─── Google Images ───
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /assets/
+Allow: /public/
+
+# ─── Google Video ───
+User-agent: Googlebot-Video
+Allow: /
+Allow: /assets/
+Allow: /videos/
+
+# ─── Google News ───
+User-agent: Googlebot-News
+Allow: /
+
+# ─── Google AdsBot ───
+User-agent: AdsBot-Google
+Allow: /
+
+# ─── Google Shopping ───
+User-agent: Googlebot-Shopping
+Allow: /
+
+# ─── Google AdSense ───
+User-agent: Mediapartners-Google
+Allow: /
+
+# ─── Bing ───
+User-agent: bingbot
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /cgi-bin
+Disallow: /tmp
+Disallow: /private
+Disallow: /test
+
+# ─── Bing Images ───
+User-agent: bingbot-Image
+Allow: /
+Allow: /images/
+Allow: /assets/
+
+# ─── Bing News ───
+User-agent: bingbot-News
+Allow: /
+
+# ─── Mail.Ru ───
+User-agent: Mail.Ru
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /tmp
+Disallow: /private
+
+# ─── Rambler ───
+User-agent: StackRambler
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+Disallow: /tmp
+Disallow: /private
+
+# ─── DuckDuckGo ───
+User-agent: DuckDuckBot
+Allow: /
+
+# ─── Apple ───
+User-agent: Applebot
+Allow: /
+
+# ─── Facebook ───
+User-agent: facebookexternalhit
+Allow: /
+
+# ─── Twitter ───
+User-agent: Twitterbot
+Allow: /
+
+# ─── Telegram ───
+User-agent: TelegramBot
+Allow: /
+
+# ─── VK ───
+User-agent: VKShare
+Allow: /
+
+# ─── Pinterest ───
+User-agent: Pinterestbot
+Allow: /
+
+# ─── LinkedIn ───
+User-agent: LinkedInBot
+Allow: /
+
+# ─── ChatGPT / OpenAI ───
+User-agent: GPTBot
+Allow: /
+
+# ─── OAI SearchBot ───
+User-agent: OAI-SearchBot
+Allow: /
+
+# ─── Perplexity ───
+User-agent: PerplexityBot
+Allow: /
+
+# ─── Anthropic ───
+User-agent: anthropic-ai
+Allow: /
+
+# ─── Google Extended ───
+User-agent: Google-Extended
+Allow: /
+
+# ─── Baidu ───
+User-agent: Baiduspider
+Disallow: /
+
+# ─── Sogou ───
+User-agent: Sogou web spider
+Disallow: /
+
+# ─── 360Spider ───
+User-agent: 360Spider
+Disallow: /
+
+# ─── Bytespider ───
+User-agent: Bytespider
+Disallow: /
+
+# ─── Ahrefs ───
+User-agent: AhrefsBot
+Disallow: /
+
+# ─── Semrush ───
+User-agent: SemrushBot
+Disallow: /
+
+# ─── Majestic ───
+User-agent: MJ12bot
+Disallow: /
+
+# ─── Moz ───
+User-agent: DotBot
+Disallow: /
+
+# ─── Screaming Frog ───
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+
+# ─── Nutch ───
+User-agent: Nutch
+Disallow: /
+
+# ─── PetalBot ───
+User-agent: PetalBot
+Disallow: /
+
+# ─── Cốc Cốc ───
+User-agent: coccocbot
+Disallow: /
+
+# ─── Seznam ───
+User-agent: SeznamBot
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /api
+
+# ─── Задержка между запросами (в секундах) ───
+Crawl-delay: 3
+
+# ─── Карты сайта ───
+Sitemap: https://remont-holodilnikov-tver.ru/sitemap.xml
+
+# ─── Зеркало сайта ───
+Host: remont-holodilnikov-tver.ru
+
+# ──────────────────────────────────────────────
+# Конец файла
+# ──────────────────────────────────────────────
