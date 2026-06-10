@@ -43,8 +43,6 @@ export const ReviewsSection: React.FC = () => (
     id="reviews"  
     className="w-full bg-[#EFF6FF] py-24 px-6"
     aria-label="Отзывы о ремонте холодильников в Твери"
-    itemScope
-    itemType="https://schema.org/Review"
   >
     <div className="max-w-6xl mx-auto">
 
