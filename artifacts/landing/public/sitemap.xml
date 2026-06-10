@@ -4,31 +4,29 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Главная страница                              -->
-  <!-- ──────────────────────────────────────────── -->
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ГЛАВНАЯ СТРАНИЦА                              -->
+  <!-- ════════════════════════════════════════════ -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://remont-holodilnikov-tver.ru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://remont-holodilnikov-tver.onrender.com/"/>
 
-    <!-- Изображения на главной -->
     <image:image>
-      <image:loc>https://remont-holodilnikov-tver.ru/master-photo.jpg</image:loc>
+      <image:loc>https://remont-holodilnikov-tver.onrender.com/master-photo.jpg</image:loc>
       <image:title>Александр — мастер по ремонту холодильников в Твери</image:title>
       <image:caption>Частный мастер Александр — ремонт холодильников в Твери с гарантией 12 месяцев</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://remont-holodilnikov-tver.ru/og-image.jpg</image:loc>
+      <image:loc>https://remont-holodilnikov-tver.onrender.com/og-image.jpg</image:loc>
       <image:title>Ремонт холодильников в Твери | Александр</image:title>
       <image:caption>Срочный ремонт холодильников. Выезд за 60 минут. Диагностика бесплатно.</image:caption>
     </image:image>
 
-    <!-- Видео на главной -->
     <video:video>
-      <video:thumbnail_loc>https://remont-holodilnikov-tver.ru/master-thumb.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://remont-holodilnikov-tver.onrender.com/master-thumb.jpg</video:thumbnail_loc>
       <video:title>Александр — мастер по ремонту холодильников в Твери</video:title>
       <video:description>Видео-визитка мастера по ремонту холодильников. Опыт 10+ лет. Выезд за 60 минут. Гарантия 12 месяцев.</video:description>
       <video:duration>30</video:duration>
@@ -37,128 +35,133 @@
     </video:video>
   </url>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Услуги и цены                         -->
-  <!-- ──────────────────────────────────────────── -->
+  <!-- ════════════════════════════════════════════ -->
+  <!-- РАЗДЕЛЫ САЙТА (якоря)                         -->
+  <!-- ════════════════════════════════════════════ -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/#pricing</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#pricing</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Преимущества                          -->
-  <!-- ──────────────────────────────────────────── -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/#why</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#why</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Отзывы                                -->
-  <!-- ──────────────────────────────────────────── -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/#reviews</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#reviews</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Социальные сети                       -->
-  <!-- ──────────────────────────────────────────── -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/#social</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#social</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Контакты                              -->
-  <!-- ──────────────────────────────────────────── -->
   <url>
-    <loc>https://remont-holodilnikov-tver.ru/#contact</loc>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#contact</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://remont-holodilnikov-tver.onrender.com/#hero</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Раздел: Главный экран                         -->
-  <!-- ──────────────────────────────────────────── -->
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/#hero</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО БРЕНДАМ ХОЛОДИЛЬНИКОВ                      -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-samsung-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-lg-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-bosch-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-atlant-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-indesit-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-stinol-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-liebherr-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-whirlpool-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-electrolux-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-ariston-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-biryusa-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-nord-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-beko-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-candy-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-sharp-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- Дополнительные страницы (если будут)          -->
-  <!-- ──────────────────────────────────────────── -->
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-holodilnikov-samsung-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-holodilnikov-lg-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-holodilnikov-bosch-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-holodilnikov-atlant-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-holodilnikov-indesit-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/zamena-kompressora-holodilnika-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/zapravka-freonom-holodilnika-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-no-frost-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/remont-platy-upravleniya-holodilnika-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://remont-holodilnikov-tver.ru/diagnostika-holodilnika-tver</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО УСЛУГАМ                                    -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-kompressora-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zapravka-freonom-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-no-frost-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-platy-upravleniya-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/diagnostika-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-termoregulyatora-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/ustranenie-utechki-freona-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-ventilyatora-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-isparitelya-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-dveri-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/zamena-uplotnitelya-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-morozilnoj-kamery-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-dvuhkamernogo-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО ПОЛОМКАМ                                   -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-ne-morozit-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-techet-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-shumit-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-ne-vklyuchaetsya-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-bet-tokom-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-silno-morozit-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/holodilnik-ne-otklyuchaetsya-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/obmerzanie-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/nepriyatnyj-zapah-v-holodilnike-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО РАЙОНАМ ТВЕРИ                              -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-zavolzhskij-rajon-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-moskovskij-rajon-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-proletarskij-rajon-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-tsentralnyj-rajon-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-yunost-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-chajka-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-mamulino-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-sominka-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-migalovo-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-pervomajskij-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО ГОРОДАМ ОБЛАСТИ                            -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-rzhev</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-vyshnij-volochek</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-kimry</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-torzhok</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-konakovo</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-udomlya</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-bezhetsk</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-bologoe</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-nelidovo</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-ostashkov</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ПО ТИПУ РЕМОНТА                               -->
+  <!-- ════════════════════════════════════════════ -->
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/srochnyj-remont-holodilnikov-tver</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-na-domu-tver</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/nedorogoj-remont-holodilnikov-tver</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/chastnyj-master-holodilnikov-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/vyzov-mastera-holodilnika-tver</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-s-garantiej-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-kruglosutochno-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://remont-holodilnikov-tver.onrender.com/remont-holodilnikov-v-vyhodnye-tver</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>

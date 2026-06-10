@@ -197,7 +197,9 @@ export const HeroSection: React.FC = () => {
             >
               <meta itemProp="name" content="Александр — мастер по ремонту холодильников в Твери" />
               <meta itemProp="description" content="Видео-визитка мастера по ремонту холодильников Александра" />
-              <meta itemProp="thumbnailUrl" content="/master-thumb.jpg" />
+              <meta itemProp="thumbnailUrl" content="https://remont-holodilnikov-tver.onrender.com/master-thumb.jpg" />
+              <meta itemProp="uploadDate" content="2026-06-10T08:00:00+03:00" />
+              <meta itemProp="contentUrl" content="https://remont-holodilnikov-tver.onrender.com/assets/kling_20260606_VIDEO_The_person_5916_0_1780760294551-Crme_TcX.mp4" />
               <video
                 ref={videoRef}
                 src={videoSrc}

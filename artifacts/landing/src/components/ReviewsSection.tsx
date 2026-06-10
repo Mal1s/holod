@@ -40,7 +40,7 @@ const stats = [
 
 export const ReviewsSection: React.FC = () => (
   <section 
-    id="reviews" 
+    id="reviews"  
     className="w-full bg-[#EFF6FF] py-24 px-6"
     aria-label="Отзывы о ремонте холодильников в Твери"
     itemScope
@@ -99,6 +99,9 @@ export const ReviewsSection: React.FC = () => (
               <meta itemProp="ratingValue" content="5" />
               <meta itemProp="bestRating" content="5" />
             </div>
+            <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
+              <meta itemProp="name" content="Александр — Ремонт холодильников в Твери" />
+            </div>
 
             <div className="flex items-center gap-3 mb-4">
               <div className={`w-11 h-11 rounded-full ${color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0`} aria-hidden="true">
@@ -128,8 +131,10 @@ export const ReviewsSection: React.FC = () => (
         <meta itemProp="bestRating" content="5.0" />
         <meta itemProp="ratingCount" content="200" />
         <meta itemProp="reviewCount" content="200" />
-        <meta itemProp="itemReviewed" content="Ремонт холодильников в Твери — Александр" />
-
+        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
+          <meta itemProp="name" content="Александр — Ремонт холодильников в Твери" />
+        </div>
+        
         {stats.map(({ value, label, desc }, i) => (
           <motion.div
             key={label}
