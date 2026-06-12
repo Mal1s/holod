@@ -52,7 +52,7 @@ export const ReviewsSection: React.FC = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-center mb-10"
       >
         <span className="inline-block text-xs font-mono tracking-[0.3em] text-[#1D4ED8] uppercase mb-3 bg-white px-4 py-1.5 rounded-full border border-blue-100">
           Отзывы клиентов
@@ -74,7 +74,7 @@ export const ReviewsSection: React.FC = () => (
       </h3>
 
       {/* Сетка отзывов */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
         {reviews.map(({ name, initials, color, text, keywords }, i) => (
           <motion.div
             key={name}
@@ -121,7 +121,7 @@ export const ReviewsSection: React.FC = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="grid grid-cols-3 gap-6 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-blue-100"
+        className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-blue-100"
         itemScope
         itemType="https://schema.org/AggregateRating"
       >
@@ -132,21 +132,23 @@ export const ReviewsSection: React.FC = () => (
         <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
           <meta itemProp="name" content="Александр — Ремонт холодильников в Твери" />
         </div>
-        
-        {stats.map(({ value, label, desc }, i) => (
-          <motion.div
-            key={label}
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-            className="text-center"
-          >
-            <div className="text-3xl md:text-4xl font-black text-[#1D4ED8] mb-1">{value}</div>
-            <div className="text-[#94a3b8] text-xs uppercase tracking-wider font-medium">{label}</div>
-            <div className="text-[#94a3b8] text-[10px] mt-0.5">{desc}</div>
-          </motion.div>
-        ))}
+
+        <div className="flex flex-row justify-center gap-4 md:gap-8">
+          {stats.map(({ value, label, desc }, i) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
+              className="flex flex-col items-center gap-2 bg-[#F8FAFF] rounded-2xl px-6 py-5 min-w-[120px]"
+            >
+              <span className="text-4xl md:text-5xl font-black text-[#1D4ED8] leading-none">{value}</span>
+              <span className="text-[#64748b] text-xs font-semibold uppercase tracking-wider">{label}</span>
+              <span className="text-[#94a3b8] text-[11px] leading-tight text-center">{desc}</span>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </div>
   </section>
