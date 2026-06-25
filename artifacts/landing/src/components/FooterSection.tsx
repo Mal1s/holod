@@ -164,7 +164,7 @@ export const FooterSection: React.FC = () => {
             </div>
 
             {/* Quick social row */}
-            <div className="flex gap-3 mt-2">
+            <div className="flex flex-wrap gap-2 mt-2">
               {[
                 { label: "ВКонтакте", href: "https://vk.com/id401580420", bg: "bg-[#0077FF]" },
                 { label: "ОК", href: "https://ok.ru/profile/575591001485", bg: "bg-[#EE8208]" },
@@ -179,7 +179,7 @@ export const FooterSection: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`${bg} text-white text-xs font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-90`}
+                  className={`${bg} text-white text-xs font-bold px-3 py-2 rounded-lg transition-opacity hover:opacity-90 whitespace-nowrap`}
                 >
                   {label}
                 </motion.a>

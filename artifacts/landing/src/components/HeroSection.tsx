@@ -37,19 +37,19 @@ export const HeroSection: React.FC = () => {
       itemScope
       itemType="https://schema.org/WPHeader"
     >
-      {/* Decorative blobs */}
-      <motion.div
-        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-blue-100 opacity-40 blur-3xl pointer-events-none"
-        animate={{ scale: [1, 1.08, 1], x: [0, 20, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
-      />
-      <motion.div
-        className="absolute bottom-[-15%] left-[-5%] w-[400px] h-[400px] rounded-full bg-indigo-100 opacity-30 blur-3xl pointer-events-none"
-        animate={{ scale: [1, 1.05, 1], y: [0, -20, 0] }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
-      />
+      {/* Decorative blobs — wrapped to prevent horizontal overflow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <motion.div
+          className="absolute top-[-10%] right-[-5%] w-[min(500px,80vw)] h-[min(500px,80vw)] rounded-full bg-blue-100 opacity-40 blur-3xl"
+          animate={{ scale: [1, 1.08, 1], x: [0, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[-15%] left-[-5%] w-[min(400px,70vw)] h-[min(400px,70vw)] rounded-full bg-indigo-100 opacity-30 blur-3xl"
+          animate={{ scale: [1, 1.05, 1], y: [0, -20, 0] }}
+          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 pt-24 pb-16">
         {/* Left: text */}
