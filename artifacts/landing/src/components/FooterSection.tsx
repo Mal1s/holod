@@ -337,7 +337,7 @@ export const FooterSection: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-blue-400 text-sm">
-          <span>© 2024 Александр · Ремонт холодильников в Твери и области</span>
+          <span>© 2026 Александр · Ремонт холодильников в Твери и области</span>
           <span className="font-mono text-xs">ИП · Работаю с 2014 года</span>
         </div>
       </div>
