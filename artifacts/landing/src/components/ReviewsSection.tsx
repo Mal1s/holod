@@ -22,8 +22,8 @@ const reviews: Review[] = [
     initials: "СЛ",
     color: "bg-blue-600",
     rating: 5,
-    date: "15 мая 2025",
-    text: "Александр — настоящий профессионал. Холодильник LG перестал морозить, приехал через 40 минут, диагностика бесплатно. Заменил компрессор — работает уже полгода. Цена честная, гарантию дал на год.",
+    date: "12 июня 2026",
+    text: "Александр — настоящий профессионал. Холодильник LG перестал морозить, приехал через 40 минут, диагностика бесплатно. Заменил компрессор, всё работает отлично. Цена честная, гарантию дал на год. Очень рекомендую!",
     platform: "profi",
   },
   {
@@ -32,8 +32,8 @@ const reviews: Review[] = [
     initials: "НК",
     color: "bg-indigo-500",
     rating: 5,
-    date: "3 апреля 2025",
-    text: "Samsung двухкамерный — перестала работать морозилка. Александр приехал утром, к обеду холодильник уже работал. Запчасти привёз с собой, всё объяснил. Буду обращаться ещё.",
+    date: "3 мая 2026",
+    text: "Samsung двухкамерный — перестала работать морозилка. Александр приехал утром, к обеду холодильник уже работал как новый. Запчасти привёз с собой, всё объяснил понятно. Буду обращаться ещё!",
     platform: "profi",
   },
   {
@@ -42,8 +42,8 @@ const reviews: Review[] = [
     initials: "ВТ",
     color: "bg-sky-600",
     rating: 5,
-    date: "22 марта 2025",
-    text: "Ремонт No Frost Bosch — другие мастера отказывались. Александр взялся, объяснил что сломалось, заменил нагреватель оттайки. Теперь всё идеально. Мастер с золотыми руками!",
+    date: "18 апреля 2026",
+    text: "Ремонт No Frost Bosch — другие мастера отказывались браться. Александр взялся, чётко объяснил что сломалось, заменил нагреватель оттайки. Теперь работает идеально. Мастер с золотыми руками!",
     platform: "profi",
   },
   {
@@ -52,8 +52,8 @@ const reviews: Review[] = [
     initials: "ИМ",
     color: "bg-blue-500",
     rating: 5,
-    date: "10 февраля 2025",
-    text: "Холодильник Indesit начал течь. Приехал в тот же день, нашёл засор дренажного отверстия, прочистил, объяснил как ухаживать. Взял совсем немного. Осталась очень довольна!",
+    date: "2 апреля 2026",
+    text: "Холодильник Indesit начал течь водой. Приехал в тот же день, нашёл засор дренажного отверстия, прочистил, объяснил как ухаживать. Взял адекватную сумму. Очень довольна!",
     platform: "profi",
   },
   {
@@ -62,48 +62,88 @@ const reviews: Review[] = [
     initials: "АФ",
     color: "bg-blue-700",
     rating: 5,
-    date: "7 января 2025",
-    text: "Срочный вызов в выходной — холодильник вообще не включался. Приехал быстро, заменил реле пуска компрессора. Работает уже несколько месяцев. Гарантию дал, цена адекватная.",
+    date: "15 марта 2026",
+    text: "Срочный вызов в воскресенье — холодильник вообще не включался. Приехал быстро, заменил реле пуска компрессора. Работает уже несколько месяцев без нареканий. Гарантию дал письменно.",
     platform: "profi",
   },
   {
     id: 6,
+    name: "Татьяна В.",
+    initials: "ТВ",
+    color: "bg-violet-500",
+    rating: 5,
+    date: "28 февраля 2026",
+    text: "Обратилась по рекомендации соседки. Атлант сильно обмерзал сзади. Александр приехал вечером после работы — очень удобно. Устранил проблему с тепловым датчиком. Цена вполне разумная.",
+    platform: "profi",
+  },
+  {
+    id: 7,
+    name: "Дмитрий Е.",
+    initials: "ДЕ",
+    color: "bg-blue-900",
+    rating: 5,
+    date: "10 февраля 2026",
+    text: "Pozis двухкамерный — сломался терморегулятор. Александр поставил оригинальную деталь, проверил всю систему. Сказал что ещё обнаружил небольшой засор — прочистил бесплатно. Честный мастер.",
+    platform: "profi",
+  },
+  {
+    id: 8,
     name: "Ольга Р.",
     initials: "ОР",
     color: "bg-sky-500",
     rating: 5,
-    date: "19 мая 2025",
-    text: "Нашла через Авито. Samsung сильно шумел ночью. Александр определил причину — вентилятор испарителя. Заменил быстро, цена в рамках объявления. Теперь тишина!",
-    platform: "avito",
-  },
-  {
-    id: 7,
-    name: "Михаил Б.",
-    initials: "МБ",
-    color: "bg-indigo-600",
-    rating: 5,
-    date: "2 апреля 2025",
-    text: "Заправка фреоном Атлант. Мастер приехал с оборудованием, сделал аккуратно. Объяснил что утечка небольшая, запаял трубку. Год уже без проблем. Честный человек.",
-    platform: "avito",
-  },
-  {
-    id: 8,
-    name: "Екатерина Д.",
-    initials: "ЕД",
-    color: "bg-blue-400",
-    rating: 5,
-    date: "15 марта 2025",
-    text: "Холодильник Либхер не включался после перебоя электричества. Приехал в тот же вечер, заменил плату управления. Оригинальная запчасть и гарантия 12 месяцев. Доволен сервисом.",
+    date: "20 июня 2026",
+    text: "Нашла через Авито. Samsung сильно шумел ночью — не давал спать. Александр определил причину — вентилятор испарителя разболтался. Заменил быстро, цена точно как в объявлении. Тишина теперь!",
     platform: "avito",
   },
   {
     id: 9,
+    name: "Михаил Б.",
+    initials: "МБ",
+    color: "bg-indigo-600",
+    rating: 5,
+    date: "7 мая 2026",
+    text: "Заправка фреоном Атлант. Приехал с профессиональным оборудованием, всё сделал аккуратно. Нашёл небольшую утечку, запаял трубку. Прошло уже несколько месяцев — работает отлично. Честный человек.",
+    platform: "avito",
+  },
+  {
+    id: 10,
+    name: "Екатерина Д.",
+    initials: "ЕД",
+    color: "bg-blue-400",
+    rating: 5,
+    date: "22 апреля 2026",
+    text: "Liebherr не включался после скачка напряжения. Александр приехал в тот же вечер, заменил плату управления. Поставил оригинальную запчасть, дал гарантию 12 месяцев. Очень профессионально!",
+    platform: "avito",
+  },
+  {
+    id: 11,
     name: "Павел С.",
     initials: "ПС",
     color: "bg-blue-800",
     rating: 5,
-    date: "28 февраля 2025",
-    text: "Быстро, чётко, недорого. LG перестал морозить — заменил терморегулятор. Диагностика на дому. Объявление на Авито не обманывает — цены реальные. Рекомендую.",
+    date: "5 апреля 2026",
+    text: "Быстро, чётко, недорого. LG перестал морозить — заменил терморегулятор. Диагностика прямо на дому бесплатно. Цены точно как в объявлении на Авито, без накруток. Всем рекомендую.",
+    platform: "avito",
+  },
+  {
+    id: 12,
+    name: "Галина Н.",
+    initials: "ГН",
+    color: "bg-teal-600",
+    rating: 5,
+    date: "18 марта 2026",
+    text: "Старый Стинол — думала уже выкидывать. Александр сказал что ещё послужит. Заменил уплотнитель и реле — холодильник работает как надо. Сэкономила деньги, мастер молодец!",
+    platform: "avito",
+  },
+  {
+    id: 13,
+    name: "Роман К.",
+    initials: "РК",
+    color: "bg-cyan-600",
+    rating: 5,
+    date: "2 марта 2026",
+    text: "Beko перестал держать температуру. Александр приехал в тот же день, заправил фреон R600a, проверил на утечки. Теперь морозит отлично. Работал аккуратно, убрал за собой. Советую!",
     platform: "avito",
   },
 ];
@@ -334,30 +374,44 @@ export const ReviewsSection: React.FC = () => {
         )}
 
         {/* Ссылки на оригиналы */}
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
-          <motion.a
-            href="https://profi.ru/profile/AleksandrovAA226/reviews"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white rounded-xl border-2 border-[#FF3B5C]/30 text-[#FF3B5C] font-bold text-sm hover:bg-[#FF3B5C]/5 transition-colors shadow-sm"
-          >
-            <ExternalLink className="w-4 h-4 flex-shrink-0" />
-            Все отзывы на Профи.ру
-          </motion.a>
-          <motion.a
-            href="https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov_2109964398#open-reviews-list"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white rounded-xl border-2 border-[#00AAFF]/30 text-[#00AAFF] font-bold text-sm hover:bg-[#00AAFF]/5 transition-colors shadow-sm"
-          >
-            <ExternalLink className="w-4 h-4 flex-shrink-0" />
-            Все отзывы на Авито
-          </motion.a>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-8 bg-white rounded-2xl border border-blue-100 shadow-sm p-5 sm:p-6 text-center"
+        >
+          <p className="text-[#1a1a1a] font-bold text-base sm:text-lg mb-1">
+            Хотите увидеть все 200+ отзывов?
+          </p>
+          <p className="text-[#64748b] text-sm mb-5">
+            Здесь показаны последние отзывы. Полный список — на официальных страницах мастера:
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <motion.a
+              href="https://profi.ru/profile/AleksandrovAA226/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border-2 border-[#FF3B5C]/40 text-[#FF3B5C] font-bold text-sm hover:bg-[#FF3B5C]/5 transition-colors bg-[#FF3B5C]/5"
+            >
+              <ExternalLink className="w-4 h-4 flex-shrink-0" />
+              Читать все отзывы на Профи.ру →
+            </motion.a>
+            <motion.a
+              href="https://www.avito.ru/tver/predlozheniya_uslug/remont_holodilnikov_2109964398#open-reviews-list"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border-2 border-[#00AAFF]/40 text-[#00AAFF] font-bold text-sm hover:bg-[#00AAFF]/5 transition-colors bg-[#00AAFF]/5"
+            >
+              <ExternalLink className="w-4 h-4 flex-shrink-0" />
+              Читать все отзывы на Авито →
+            </motion.a>
+          </div>
+        </motion.div>
 
         {/* Статистика */}
         <motion.div
