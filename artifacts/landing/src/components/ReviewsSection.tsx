@@ -430,23 +430,29 @@ export const ReviewsSection: React.FC = () => {
           <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
             <meta itemProp="name" content="Александр — Ремонт холодильников в Твери" />
           </div>
-          <div className="flex flex-row justify-center gap-3 sm:gap-8">
+          <div className="grid grid-cols-3 divide-x divide-[#E2E8F0]">
             {[
               { value: "10+", label: "лет опыта", desc: "ремонта холодильников" },
-              { value: "1 200+", label: "ремонтов", desc: "выполнено мастером" },
-              { value: "4.9★", label: "рейтинг", desc: "на Профи.ру и Авито" },
+              { value: "1200+", label: "ремонтов", desc: "выполнено мастером" },
+              { value: "4.9★", label: "рейтинг", desc: "Профи.ру и Авито" },
             ].map(({ value, label, desc }, i) => (
               <motion.div
                 key={label}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-                className="flex flex-col items-center gap-1.5 bg-[#F8FAFF] rounded-2xl px-3 sm:px-6 py-4 sm:py-5 flex-1"
+                className="flex flex-col items-center text-center px-2 sm:px-6 py-4 sm:py-5 gap-1"
               >
-                <span className="text-2xl sm:text-4xl md:text-5xl font-black text-[#1D4ED8] leading-none">{value}</span>
-                <span className="text-[#64748b] text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-center">{label}</span>
-                <span className="text-[#94a3b8] text-[10px] sm:text-[11px] leading-tight text-center hidden sm:block">{desc}</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1D4ED8] leading-none tracking-tight">
+                  {value}
+                </span>
+                <span className="text-[#1a1a1a] text-xs sm:text-sm font-bold mt-1 leading-tight">
+                  {label}
+                </span>
+                <span className="text-[#94a3b8] text-[10px] sm:text-xs leading-tight">
+                  {desc}
+                </span>
               </motion.div>
             ))}
           </div>
